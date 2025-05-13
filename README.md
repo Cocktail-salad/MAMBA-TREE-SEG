@@ -10,7 +10,7 @@ we take the visualization of simulated local forest dataset slices of TreeLearn 
 
 ![result](https://github.com/Cocktail-salad/MAMBA-TREE-SEG/blob/master/Figures/Figure9.jpg)
 
-Meanwhile, in the above figure, we study the comparison of the evaluation results of the dataset in the x, y and z axis directions. The improved sparse convolutional neural network based on Mamba shows better segmentation accuracy in vertical and horizontal directions, and can effec-tively capture data features, which is superior to traditional methods. 
+Meanwhile, in the above figure, we study the comparison of the evaluation results of the dataset in the x, y and z axis directions. The improved sparse convolutional neural network based on Mamba shows better segmentation accuracy in vertical and horizontal directions, and can effectively capture data features, which is superior to traditional methods. 
 
 ![result](https://github.com/Cocktail-salad/MAMBA-TREE-SEG/blob/master/Figures/Figure10.jpg)
 
