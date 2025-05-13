@@ -1,7 +1,7 @@
 # Mamba-Enhanced Sparse CNN for High-Precision Instance-Level Tree Segmentation in Diverse Forests
 In order to achieve comprehensive and accurate tree resources inventory in small woodlands or local forests with diverse tree species, an improved forest point cloud instance segmentation method based on sparse convolutional neural network is proposed. Meanwhile, the study develops a parameterized procedural generation pipeline that produces ecologically realistic synthetic forest scenes, effectively bridging the data gap for robust model develop-ment and evaluation. 
 # Introduction of Simulated forest point cloud synthesis pipeline
-To simulate the forest inventory task in a real situation, our study proposes a new pipeline to solve the problem faced by the FOR-instance dataset. To some extent, it solves the problem of lack of large and fine real forest land point clouds in current research, making it more con-sistent with the detection of small forest land in the real forest inventory process. The real situation is the scene where the driver’s walking trajectory distance is about 100 meters. Below is the result of our pipeline.  
+To simulate the forest inventory task in a real situation, our study proposes a new pipeline to solve the problem faced by the FOR-instance dataset. To some extent, it solves the problem of lack of large and fine real forest land point clo-uds in current research, making it more con-sistent with the detection of small forest land in the real forest inven-tory process. The real situation is the scene where the driver’s walking trajectory distance is about 100 meters. Below is the result of our pipeline.  
   
 ![result](https://github.com/Cocktail-salad/MAMBA-TREE-SEG/blob/master/Figures/Figure8.jpg)
 
