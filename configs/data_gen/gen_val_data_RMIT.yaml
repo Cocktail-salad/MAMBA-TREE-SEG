@@ -1,0 +1,13 @@
+# default_args is used to include configs from the _modular folder into this config. This ensures a modular way of combining different config files.
+# default_args 用于将 _modular 文件夹中的配置包含到此配置中。这样可以确保以模块化方式组合不同的配置文件。
+default_args: ["configs/_modular/sample_generation_RMIT_PIANYI.yaml"]
+
+############ modification of default args
+sample_generation:
+  search_radius_features: 0.6
+  inner_edge: 8
+  outer_edge: 13.5
+  stride: 1
+
+############ non-default args
+forest_path: 'data_RMIT/val_pianyi/forest/merged_points.las' # path to forest point cloud for which validation tiles are to be generated  要生成验证瓦片的森林点云的路径

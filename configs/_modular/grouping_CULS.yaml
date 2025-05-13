@@ -1,0 +1,12 @@
+grouping:
+  tree_conf_thresh: 0.5 # minimum confidence (with regard to semantic prediction) for a point to be predicted as belonging to trees. Only predicted tree points are used during clustering
+                        # 最小置信度（语义预测方面），用于预测一个点是否属于树。聚类时只使用预测的树点
+  tau_vert: 0.6 # minimum verticality for a point to be considered during clustering
+                # # 聚类时要考虑的点的最小垂直度
+  tau_off: 2 # maximum distance from the tree base for a point to be considered during clustering
+             # 聚类时要考虑的点与树基的最大距离
+  tau_group: 0.15 # grouping radius of offset-shifted coordinates for clustering
+                  # 用于聚类的偏移坐标的分组半径
+  tau_min: 100 # After grouping, clusters containing less pointgrouping.yamls than this are discarded immediately since they are deemed to small to be a tree
+               # 在分组后，包含的点数少于此值的聚类会被立即丢弃，因为它们被认为太小，无法成为一棵树
+  use_hdbscan: True # use hdbscan instead of dbscan for flexible clustering based on one hyperparameter only (tau_min) instead of two for dbscan (tau_min, tau_group)

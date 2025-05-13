@@ -1,0 +1,11 @@
+dataset_train:
+  training: True # True if dataset used for training; False if used for validation 如果数据集用于训练，则为 True；如果用于验证，则为 False
+  data_root: 'data_NIBIO/train/random_crops/npz' # folder where crops for model training are located 用于模型训练的作物所在的文件夹
+  data_augmentations:
+    jitter: True
+    flip: True
+    rot: True
+    scaled: False
+    point_jitter: False
+  inner_square_edge_length: 8 # Length of inner square to be used for training. E.g. if tiles/crops are 30mx30m, this indicates that only inner 8x8 is taken into account
+                              # 用于训练的内方格的长度。例如，如果瓦片/农作物的尺寸为 30 米 x 30 米，则表示只考虑 8x8 的内方格。

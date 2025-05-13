@@ -1,0 +1,23 @@
+# default_args is used to include configs from the _modular folder into this config. This ensures a modular way of combining different config files.
+# default_args 用于将 _modular 文件夹中的配置包含到此配置中。这样可以确保以模块化方式组合不同的配置文件。
+default_args: ["configs/_modular/sample_generation_NIBIO.yaml"]
+
+
+base_dir: 'data_NIBIO/train' # base dir that contains a folder named "forests" which contains the forest point clouds for which training samples are to be generated
+                       # 基本目录包含一个名为 "forests "的文件夹，其中包含要生成训练样本的森林点云
+
+# further args needed for random crop generation (mostly technical details that can be left unchanged)
+# 随机作物生成所需的其他参数（主要是技术细节，可保持不变）
+occupancy_res: 1 # for each forest point cloud an xy-occupancy map is created to determine the extensions of the given forest. occupancy_res x occupancy_res is the resolution of the occupancy map in meters
+                 # 随机作物生成所需的其他参数（主要是技术细节，可保持不变）
+n_points_to_calculate_occupancy: 100000 # subsample forest point cloud to n_points_to_calculate_occupancy for occupancy calculation to save compute resources
+                                        # 在计算占用率时，将森林点云子样化为 n_points_too_calculate_occupancy 以节省计算资源
+min_percent_occupied_fill: 0.9 # regularize occupancy map by considering a square on the map as occupied if min_percent_occupied_fill of its neighboring squares are occupied
+                              # 如果地图上某一方格的邻近方格的最小占用百分比被占用，则将该方格视为被占用，从而规范占用地图
+how_far_fill: 9 # number of neighbors in x- and y-direction to take into account for resularization of occupancy map
+                # 占用图重定向时要考虑的 x 和 y 方向上的邻居数量
+min_percent_occupied_choose: 0.45 # after randomly selecting crops, only choose those crops that have an overlap of at least min_percent_occupied_choose with the occupancy map. This prevents selecting empty samples.
+                                  # 随机选择作物后，只选择那些与占用图重叠度至少为 min_percent_occupied_choose 的作物。这样可以避免选择空样本。
+n_samples_total: 15000 # number of samples (crops) to generate # 要生成的样本（作物）数量
+chunk_size: 30 # chunk_size x chunk_size is the xy extension of a crop in meters. In the paper, 30 m was used but it can be increased if the forest consists of very large trees. However this increases memory consumption during training.
+               # chunk_size x chunk_size 是作物的 xy 伸展长度，单位为米。本文中使用的是 30 米，但如果森林中的树木非常大，则可以适当增大。不过这会增加训练时的内存消耗。

@@ -1,0 +1,11 @@
+pred_forest_path: 'data1/pipeline/test/results/full_forest/merge_with_interference.laz' # path to predicted forest # 预测森林的路径
+benchmark_forest_path: 'data1/benchmark/merge_with_interference.las' # path to ground truth benchmark dataset 通向地面实况基准数据集的路径-
+tree_nums_used_for_evaluation_path: 'data1/extra/evaluated_trees.txt' # path to txt file consisting of all tree numbers to be taken into account for evaluation
+                                                                     # txt 文件的路径，该文件包含评估时要考虑的所有树编号
+min_iou_for_match: 0.2 # minimumn pointwise iou between predicted and ground truth tree for hungarian matching
+                       # 匈牙利语匹配的预测树与地面实况树之间的最小点差
+partitions:
+  xy_partition_relative: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] # radial dvision of each tree into segments (see paper for details) 将每棵树径向分割成若干段（详见论文）
+  z_partition_relative: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] # vertical dvision of each tree into segments (see paper for details) 将每棵树垂直划分为若干段（详见论文）
+  xy_partition_absolute: [0, 1.2, 2.4, 3.6, 4.8, 6, 7.2, 8.4, 9.6, 10.8, 15] # radial dvision of each tree into segments (see paper for details) 将每棵树径向分割成若干段（详见论文）
+  z_partition_absolute: [0, 3.8, 7.6, 11.4, 15.2, 19, 22.8, 26.6, 30.4, 34.2, 40] # vertical dvision of each tree into segments (see paper for details) 将每棵树垂直划分为若干段（详见论文）

@@ -1,0 +1,42 @@
+# default_args is used to include configs from the _modular folder into this config. This ensures a modular way of combining different config files.
+# Individual entries of the loaded default args can be changed by simply redefining them as is done below under 'modification of default args'
+# default_args 用于将 _modular 文件夹中的配置包含到此配置中。这确保了以模块化方式组合不同的配置文件。
+# 加载的默认参数中的个别条目可通过重新定义进行更改，如下文 "修改默认参数 "部分所述
+default_args: ["configs/_modular/sample_generation_NIBIO.yaml", "configs/_modular/model_NIBIO.yaml", "configs/_modular/grouping_NIBIO.yaml", "configs/_modular/dataset_test_NIBIO.yaml"]
+
+############ modification of default args 修改默认参数
+sample_generation:
+  search_radius_features: 2
+  inner_edge: 8
+  outer_edge: 13.5
+  stride: 0.5
+
+grouping:
+  tau_group: 0.15
+
+model:
+  spatial_shape: [500, 500, 1000]
+
+############ non-default args 非默认参数
+forest_path: 'data_NIBIO/pipeline/forest/merged_points.las' # path to forest point cloud to be segmented (las, npy, npz or txt) 要分割的森林点云的路径（las、npy、npz 或 txt）
+pretrain: 'work_dirs/train_NIBIO_withoutmamba/epoch_1000.pth' # path to trained network parameters for offset and semantic prediction 用于偏移和语义预测的训练有素的网络参数路径
+fp16: True # using half precision for network prediction 利用半精度进行网络预测
+tile_generation: True # whether to generate tiles for the forest point cloud to be segmented. If you re-run the pipeline multiple times for the same point cloud, this can be set to False after the first time.
+# 是否为要分割的森林点云生成瓦片。如果为同一个点云多次重新运行管道，可以在第一次运行后将其设置为 "假"。
+dataloader:
+  batch_size: 1
+  num_workers: 1
+
+shape_cfg:
+  alpha: 0 # alpha value in hull calculation to get xy outline of forest point cloud. 0 leads to convex hull. alpha=0.6 nice for point clouds that are non-convex in the xy plane.
+           # α值用于计算森林点云的 xy 外形。alpha=0.6 适合在 xy 平面上不凸的点云。
+  outer_remove: ~ # When returning the segmentation result, crop outer_remove meters at the edges of the input point cloud. This is recommended since edge predictions are worse because they lack context for prediction.
+                     # 返回分割结果时，裁剪输入点云边缘的 outer_remove 米。建议这样做，因为边缘的预测结果较差，因为它们缺乏预测的上下文。
+  buffer_size_to_determine_edge_trees: 0.3 # determine which trees are completely within the segment. This is used to return different categories of trees (e.g. completely vs. partly within cropped result).
+                                           # 确定哪些树木完全在片段内。这用于返回不同类别的树木（例如，完全在裁剪结果内与部分在裁剪结果内）。
+save_cfg:
+  save_formats: ['laz', 'npz'] # save formats for predicted forest (laz, las, npz, npy or txt) 预测森林的保存格式（laz、las、npz、npy 或 txt）
+  save_treewise: True # additionally save predicted trees individually as las files 另外将预测树单独保存为 las 文件
+  save_pointwise: True # additionally save pointwise results as numpy arrays (offset predictions, semantic predictions, etc.) 此外，还可将点对点结果保存为 numpy 数组（偏移预测、语义预测等）。
+  return_type: "voxelized" # returns predictions on either the "voxelized_and_filtered", "voxelized" or "original" point cloud. Takes longer if "original" is selected since predictions must be propagated to original input points.
+                           # 返回 "体素化和过滤"、"体素化 "或 "原始 "点云的预测结果。如果选择 "原始"，则需要更长的时间，因为预测结果必须传播到原始输入点。

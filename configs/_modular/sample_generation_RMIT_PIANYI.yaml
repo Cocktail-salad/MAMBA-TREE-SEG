@@ -1,0 +1,19 @@
+sample_generation:
+  voxel_size: 0.1 # downsampling of input point cloud so that there is only one point left within a cube of size voxel_size x voxel_size x voxel_size
+                  # 对输入点云进行下采样，以便在 voxel_size x voxel_size x voxel_size 大小的立方体中只留下一个点
+  search_radius_features: 0.6 # search radius to compute local geometry features of a point (in the paper, only verticality feature is used)
+                              # 计算点的局部几何特征的搜索半径（本文仅使用垂直度特征）
+  inner_edge: 8 # only needed or tile generation and not for random crops. Designates the inner area to be used for making predictions
+                # 仅用于瓦片生成，不用于随机作物。指定用于预测的内部区域
+  outer_edge: 13.5 # only needed or tile generation and not for random crops. Designates the outer area which is used as context
+                   # 仅用于瓦片生成，不用于随机作物。指定用作背景的外部区域
+  stride: 0.5 # only needed or tile generation and not for random crops. Designates the stride of the inner square. If set to 1, the tiles are generated without overlap. Smaller numbers lead to overlap.
+              # 仅用于瓦片生成，不用于随机裁剪。指定内方格的步距。如果设置为 1，则生成的平铺不会重叠。数字越小，重叠越多。
+  # sample generator args 生成器参数示例
+  sample_generator:
+  # 用于点云统计和邻域过滤的参数。详情请访问：http://www.open3d.org/docs/latest/tutorial/Advanced/pointcloud_outlier_removal.html
+  # arguments for statistical and neighbor based filtering of point cloud. For details: http://www.open3d.org/docs/latest/tutorial/Advanced/pointcloud_outlier_removal.html
+    n_neigh_sor: 2
+    multiplier_sor: 1
+    rad: ~ # usage of this filter is deprecated # 该过滤器已废弃
+    npoints_rad: ~ # usage of this filter is deprecated # 该过滤器已废弃

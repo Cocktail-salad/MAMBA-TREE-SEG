@@ -1,0 +1,16 @@
+model:
+  kernel_size: 3 # kernel size of convolution layers 卷积层的内核大小
+  channels: 32 # channel size of first convolution layer 第一个卷积层的通道大小
+  num_blocks: 7 # number of blocks to be used in the Unet or Lnet 在 Unet 或 Lnet 中使用的区块数
+  use_feats: False # whether to use precomputed features as network input or not (default is False) 是否将预先计算的特征作为网络输入（默认为假）。
+  use_coords: False # whether to use the coordinates as network input or not. Coords are redundant since relativ position defined by voxel grid (default is False)
+                    # 是否使用坐标作为网络输入。由于相对位置由体素网格定义，因此坐标是多余的（默认为 False）
+  dim_coord: 3 # dimension of coordinates 坐标尺寸
+  dim_feat: 1 # dimension of precomputed features 预计算特征的扩展
+  max_num_points_per_voxel: 3 # maximum number of points within a voxel to use for feature averaging (the value of this does not matter that much)
+                              # 用于特征平均的体素内点的最大数量（该值并不重要）
+  fixed_modules: [] # modules whose parameters are not updated during training
+                    # 训练期间参数不更新的模块
+  spatial_shape: ~ # spatial shape of the tiles/crops. Can be set to ~ during training but should be set to a high enough number to cover the voxel extensions of the largest tile during inference
+                  # 瓦片/作物的空间形状。在训练过程中可以设置为 ~，但在推理过程中应设置足够高的数值，以覆盖最大瓦片的体素扩展范围
+  voxel_size: 0.1 # determines the voxel size in m 以 m 为单位确定体素大小

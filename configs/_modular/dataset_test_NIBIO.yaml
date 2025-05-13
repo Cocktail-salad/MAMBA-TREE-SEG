@@ -1,0 +1,5 @@
+dataset_test:
+  training: False # True if dataset used for training; False if used for validation # 如果数据集用于训练，则为 True；如果用于验证，则为 False
+  data_root: 'data_NIBIO/val/tiles/npz' # folder where tiles for model validation are located # 用于模型验证的瓦片所在文件夹
+  inner_square_edge_length: 8 # Length of inner square to be used for validation. E.g. if tiles are 30mx30m, this indicates that only inner 8x8 is taken into account
+                              # 用于验证的内方格长度。例如，如果瓷砖是 30 米 x 30 米，则表示只考虑内 8x8 的长度

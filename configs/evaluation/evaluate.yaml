@@ -1,0 +1,21 @@
+paths:
+  pred_forest_path: 'data_TUWIEN/pipeline/results/full_forest/merged_points.laz' # path to predicted forest point cloud
+  gt_forest_path: 'data_TUWIEN/benchmark/merged_points.las' # path to ground truth forest point cloud
+
+thresholds:
+  min_iou_for_match: 0.5 # minimum pointwise iou between predicted and ground truth tree for hungarian matching (>> 0 required to prevent zero iou matching)
+                          # # 匈牙利语匹配的预测树和地面实况树之间的最小点wise iou（要求 >> 0 以防止匹配的 iou 为零）。
+  min_precision_for_pred: 0.5 # sum over all i of precision(prediction, ground_truth_i) must be larger than min_precision_for_pred for an unmatched prediction to count as commission error (oversegmentation or heavy undersegmentation)
+  # Otherwise it might just be a separate tree prediction (maybe a smaller tree) that was not annotated in the ground truth.
+  # 未匹配的预测才会被视为委托错误（过度分割或严重分割不足）。
+  # 否则，它可能只是一个单独的树状预测（也许是一个较小的树状预测），没有在地面实况中注释。
+  min_recall_for_gt: 0.5 # max over all i of recall(prediction_i, ground_truth) must be larger than min_recall_for_gt for an unmatched ground truth to have a corresponding prediction (most likely undersegmentation)
+  # Otherwise, the ground truth tree was most likely not detected at all. This is not relevant to calculate the ommission error and was not mentioned in the paper.
+  # However, it can be used to pair unmatched ground truth trees with predictions for visualization purposes.
+  # 所有 i 的最大召回率（prediction_i, ground_truth）必须大于 min_recall_for_gt，未匹配的地面实况才会有相应的预测结果（很可能是未充分分割）。
+  # 否则，地面实况树很可能根本没有被检测到。这与计算遗漏误差无关，论文中也未提及。
+  # 不过，为了可视化的目的，它可以用来将未匹配的地面实况树与预测树配对。
+
+partitions:
+  xy_partition: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] # radial division of each tree into segments (see paper for details)
+  z_partition: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] # vertical dvision of each tree into segments (see paper for details)
