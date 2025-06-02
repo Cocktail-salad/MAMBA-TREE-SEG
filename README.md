@@ -15,7 +15,7 @@ To address the challenges of real-world forest inventory tasks, we propose a nov
 ![result](https://github.com/Cocktail-salad/MAMBA-TREE-SEG/blob/master/Figures/Figure8.jpg)
 
 # Results of ours Mamba-Enhanced model
-We compare our model against baseline methods using simulated forest slices from the TreeLearn and FOR-instance datasets. The results demonstrate that our approach significantly improves segmentation accuracy for densely clustered trees—a common challenge in real-world forest inventories.By integrating a multi-dimensional attention mechanism via Mamba, our model effectively resolves instance assignment errors in overlapping tree canopies. This enhancement allows simultaneous processing of complex 3D point cloud features, enabling more robust segmentation in dense woodland environments.
+We compare our model against baseline methods using simulated forest slices from the TreeLearn and FOR-instance datasets. The results demonstrate that our approach significantly improves segmentation accuracy for densely cluster-ed trees—a common challenge in real-world forest inventories.By integrating a multi-dimensional attention mechanism via Mamba, our model effectively resolves instance assignment errors in overlapping tree canopies. This enhancement allows simultaneous processing of complex 3D point cloud features, enabling more robust segmen-tation in dense woodland environments.
 
 ![result](https://github.com/Cocktail-salad/MAMBA-TREE-SEG/blob/master/Figures/Figure9.jpg)
 
