@@ -1,7 +1,7 @@
 # Mamba-Enhanced Sparse CNN for High-Precision Instance-Level Tree Segmentation in Diverse Forests
-This project introduces an enhanced forest point cloud instance segmentation method using sparse convolutional neural networks, designed for accurate tree resource inventories in small woodlands and mixed-species forests. To address data scarcity challenges, we've developed a parametric procedural generation system that creates ecological-ly realistic synthetic forest environments, enabling more robust model training and evaluation.
+This project introduces an enhanced forest point cloud instance segmentation method using sparse convolutional neural networks, designed for accurate tree resource inventories in small woodlands and mixed-species forests. 
 # Simulation Pipeline
-To address the challenges of real-world forest inventory tasks, we propose a novel pipeline that improves upon the limitations of existing FOR-instance datasets. Our solution tackles the scarcity of large-scale, high-quality real forest point clouds, particularly for small woodland areas—matching practical scenarios like field surveys with ~100-meter walking trajectories.
+To address the challenges of real-world forest inventory tasks, we propose a novel pipeline that improves upon the limitations of existing FOR-instance datasets. 
 # Key Contributions:
 
     Realistic Simulation: Generates synthetic forest point clouds that closely mimic real small-scale inventory conditions
@@ -15,11 +15,11 @@ To address the challenges of real-world forest inventory tasks, we propose a nov
 ![result](https://github.com/Cocktail-salad/MAMBA-TREE-SEG/blob/master/Figures/Figure8.jpg)
 
 # Results of ours Mamba-Enhanced model
-We compare our model against baseline methods using simulated forest slices from the TreeLearn and FOR-instance datasets. The results demonstrate that our approach significantly improves segmentation accuracy for densely clust-ered trees—a common challenge in real-world forest inventories.By integrating a multi-dimensional attention mechanism via Mamba, our model effectively resolves instance assignment errors in overlapping tree canopies. This enhancement allows simultaneous processing of complex 3D point cloud features, enabling more robust segmen-tation in dense woodland environments.
+The following figure shows how our partial forest slice compares this model with the baseline method. The results show that our method significantly improves the segmentation accuracy of dense clustering trees -a common challenge in real-world forest surveys. Our model addresses instance assignment errors that are common in overlapping tree crowns.
 
 ![result](https://github.com/Cocktail-salad/MAMBA-TREE-SEG/blob/master/Figures/Figure9.jpg)
 
-Our Mamba-enhanced sparse CNN outperforms traditional methods in 3D forest point cloud segmentation, achiev-ing higher accuracy across all axes with superior multi-directional feature extraction - particularly beneficial for distinguishing dense canopies and individual trees in complex forest structures.
+We achieved higher accuracy in all axes with multi-directional feature extraction using mamba (Figure below). This would be beneficial to distinguish between dense crowns and individual trees in complex forest structures.
 
 ![result](https://github.com/Cocktail-salad/MAMBA-TREE-SEG/blob/master/Figures/Figure10.jpg)
 
